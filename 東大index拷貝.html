@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>東大EAT 外送計算機</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #555;
+        }
+        .option-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #ddd;
+        }
+        .calculator {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        input[type="number"], select {
+            padding: 10px;
+            margin: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .formula {
+            margin-top: 10px;
+            font-style: italic;
+            color: #555;
+        }
+        .humor {
+            margin-top: 20px;
+            font-style: italic;
+            color: #555;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>東大EAT 外送計算機</h1>
+    
+    <div class="option-card">
+        <h2>A. 距離靈活外送</h2>
+        <p>無論你在哪裡，我們都能送到！</p>
+        <table>
+            <tr>
+                <th>距離</th>
+                <th>運費計算</th>
+                <th>範例</th>
+            </tr>
+            <tr>
+                <td>18公里內</td>
+                <td>每公里10元 + 餐點數量 × 每樣10元</td>
+                <td>
+                    <span>如：2樣商品、5公里</span><br>
+                    <span>總金額 = (2 × 10元) + (5 × 10元) = 70元</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="option-card">
+        <h2>B. 標準划算合點</h2>
+        <p>小團體的最優選擇！</p>
+        <table>
+            <tr>
+                <th>餐點數量</th>
+                <th>加價</th>
+                <th>範例</th>
+            </tr>
+            <tr>
+                <td>1~3樣商品</td>
+                <td>每樣15元</td>
+                <td>
+                    <span>如：3樣商品、距離12公里</span><br>
+                    <span>總金額 = (3 × 15元) + (12 × 8元) = 99元</span>
+                </td>
+            </tr>
+            <tr>
+                <td>4~6樣商品</td>
+                <td>每樣10元</td>
+                <td>
+                    <span>如：5樣商品、距離12公里</span><br>
+                    <span>總金額 = (5 × 10元) + (12 × 8元) = 106元</span>
+                </td>
+            </tr>
+            <tr>
+                <td>7~9樣商品</td>
+                <td>每樣8元</td>
+                <td>
+                    <span>如：8樣商品、距離12公里</span><br>
+                    <span>總金額 = (8 × 8元) + (12 × 8元) = 128元</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="option-card">
+        <h2>C. 多人狂點套餐</h2>
+        <p>多人點，越划算！</p>
+        <table>
+            <tr>
+                <th>餐點數量</th>
+                <th>加價</th>
+                <th>範例</th>
+            </tr>
+            <tr>
+                <td>10~11樣商品</td>
+                <td>每樣10元</td>
+                <td>
+                    <span>如：10樣商品、距離12公里</span><br>
+                    <span>總金額 = (10 × 10元) + (12 × 5元) = 130元</span>
+                </td>
+            </tr>
+            <tr>
+                <td>12~13樣商品</td>
+                <td>每樣12元</td>
+                <td>
+                    <span>如：12樣商品、距離12公里</span><br>
+                    <span>總金額 = (12 × 12元) + (12 × 5元) = 174元</span>
+                </td>
+            </tr>
+            <tr>
+                <td>14~無上限商品</td>
+                <td>每樣15元</td>
+                <td>
+                    <span>如：15樣商品、距離12公里</span><br>
+                    <span>總金額 = (15 × 15元) + (12 × 5元) = 207元</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="calculator">
+        <h2>計算外送費用</h2>
+        <label for="option">選擇方案:</label>
+        <select id="option">
+            <option value="A">A. 距離靈活外送</option>
+            <option value="B">B. 標準划算合點</option>
+            <option value="C">C. 多人狂點套餐</option>
+        </select>
+
+        <div>
+            <label for="items">餐點數量:</label>
+            <input type="number" id="items" min="1" value="1">
+        </div>
+
+        <div id="distanceContainer">
+            <label for="distance">距離 (公里):</label>
+            <input type="number" id="distance" min="0" value="0">
+        </div>
+
+        <button id="calculate">計算</button>
+        <h3>總金額: <span id="totalAmount">0</span> 元</h3>
+        <h3 class="formula">運費算式: <span id="calculationFormula"></span></h3>
+        <h3 class="humor" id="humorMessage"></h3>
+    </div>
+
+    <script>
+        document.getElementById('calculate').onclick = function() {
+            let option = document.getElementById('option').value;
+            let items = parseInt(document.getElementById('items').value);
+            let distance = parseInt(document.getElementById('distance').value);
+            let total = 0;
+            let formula = '';
+
+            if (option === 'A') {
+                if (distance > 18) {
+                    alert('A方案的距離限制為18公里內！');
+                    return;
+                }
+                total = distance * 10 + items * 10;
+                formula = `總金額 = (餐點數量 × 10元) + (距離 × 10元) = ${items} × 10 + ${distance} × 10 = ${total}`;
+            } else if (option === 'B') {
+                if (items >= 1 && items <= 3) {
+                    total = distance * 8 + items * 15;
+                    formula = `總金額 = (餐點數量 × 15元) + (距離 × 8元) = ${items} × 15 + ${distance} × 8 = ${total}`;
+                } else if (items >= 4 && items <= 6) {
+                    total = distance * 8 + items * 10;
+                    formula = `總金額 = (餐點數量 × 10元) + (距離 × 8元) = ${items} × 10 + ${distance} × 8 = ${total}`;
+                } else if (items >= 7 && items <= 9) {
+                    total = distance * 8 + items * 8;
+                    formula = `總金額 = (餐點數量 × 8元) + (距離 × 8元) = ${items} × 8 + ${distance} × 8 = ${total}`;
+                } else {
+                    alert('此方案僅適用於1~9樣商品！');
+                    return;
+                }
+            } else if (option === 'C') {
+                if (items >= 10 && items <= 11) {
+                    total = distance * 5 + items * 10;
+                    formula = `總金額 = (餐點數量 × 10元) + (距離 × 5元) = ${items} × 10 + ${distance} × 5 = ${total}`;
+                } else if (items >= 12 && items <= 13) {
+                    total = distance * 5 + items * 12;
+                    formula = `總金額 = (餐點數量 × 12元) + (距離 × 5元) = ${items} × 12 + ${distance} × 5 = ${total}`;
+                } else if (items >= 14) {
+                    total = distance * 5 + items * 15;
+                    formula = `總金額 = (餐點數量 × 15元) + (距離 × 5元) = ${items} × 15 + ${distance} × 5 = ${total}`;
+                } else {
+                    alert('此方案僅適用於10樣商品以上！');
+                    return;
+                }
+            }
+
+            document.getElementById('totalAmount').innerText = total;
+            document.getElementById('calculationFormula').innerText = formula;
+
+            // 幽默訊息
+            const humorMessages = [
+                "我在計算時把食物變成了計算機，現在我在尋找食物！",
+                "如果數學是食物，那我應該不會餓！",
+                "計算結果比外送時間還快，但不會讓你餓得更久！",
+                "希望你的食物不會像我的數學一樣難！",
+                "計算完之後別忘了吃，數字不會填飽肚子的！"
+            ];
+            const randomIndex = Math.floor(Math.random() * humorMessages.length);
+            document.getElementById('humorMessage').innerText = humorMessages[randomIndex];
+        }
+    </script>
+</body>
+</html>
